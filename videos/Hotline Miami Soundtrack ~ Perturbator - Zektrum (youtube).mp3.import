@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccqfjneb0pmps"
+path="res://.godot/imported/Hotline Miami Soundtrack ~ Perturbator - Zektrum (youtube).mp3-d0fdda615e7931f5aee1397ac9c4c80a.mp3str"
+
+[deps]
+
+source_file="res://videos/Hotline Miami Soundtrack ~ Perturbator - Zektrum (youtube).mp3"
+dest_files=["res://.godot/imported/Hotline Miami Soundtrack ~ Perturbator - Zektrum (youtube).mp3-d0fdda615e7931f5aee1397ac9c4c80a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cfxhwxx8l8qjg"]
+
+[ext_resource type="Script" uid="uid://cotxecgbotfl5" path="res://bullet.gd" id="1_jiowd"]
+[ext_resource type="Texture2D" uid="uid://b81pdut5b3ld" path="res://tiles/bullet.png" id="1_wltir"]
+[ext_resource type="AudioStream" uid="uid://n3vsnqol5iyq" path="res://videos/TIRO DE PISTOLA SOM EFEITO!! - audio efeitos brasil (youtube) (mp3cut.net).mp3" id="3_2x7xp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxyml"]
+size = Vector2(5, 3)
+
+[node name="Bullet" type="RigidBody2D" unique_id=1405161600]
+z_index = 2
+collision_layer = 4
+collision_mask = 2
+gravity_scale = 0.0
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_jiowd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=655327090]
+position = Vector2(0.5937499, 0.75)
+scale = Vector2(0.340625, 0.35)
+texture = ExtResource("1_wltir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1220442876]
+z_index = 1
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lxyml")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1524814919]
+stream = ExtResource("3_2x7xp")
+volume_db = 3.962
+autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
