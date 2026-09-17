@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://wwqjft0xdjyd" path="res://jogador.gd" id="1_c2wt1"]
 [ext_resource type="PackedScene" uid="uid://cfxhwxx8l8qjg" path="res://rigid_body_2d.tscn" id="2_4obgb"]
-[ext_resource type="Texture2D" uid="uid://b7ska5l02fox8" path="res://tiles/pixilart-drawing.png" id="2_q2130"]
 [ext_resource type="Script" uid="uid://c4gvkqm3w1s55" path="res://camera_2d.gd" id="3_q2130"]
 [ext_resource type="Texture2D" uid="uid://cpf8cj6sybio7" path="res://tiles/jacketTiro.png" id="4_j3kwt"]
+[ext_resource type="Texture2D" uid="uid://cdeya5nxi51sk" path="res://tiles/jacket.png" id="4_xswob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3t3e"]
 size = Vector2(21.81818, 24.000002)
@@ -12,7 +12,6 @@ size = Vector2(21.81818, 24.000002)
 [node name="Jogador" type="CharacterBody2D" unique_id=911236426]
 z_index = 5
 scale = Vector2(0.75, 0.75)
-collision_mask = 2
 script = ExtResource("1_c2wt1")
 speed = 175.0
 bullet_scene = ExtResource("2_4obgb")
@@ -27,7 +26,7 @@ texture = ExtResource("4_j3kwt")
 visibility_layer = 513
 position = Vector2(-1.1324883e-06, 0.0640788)
 scale = Vector2(0.88888896, 0.848873)
-texture = ExtResource("2_q2130")
+texture = ExtResource("4_xswob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106993709]
 position = Vector2(-6.666667, -2.9140926e-07)
@@ -39,5 +38,5 @@ zoom = Vector2(9, 9)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 script = ExtResource("3_q2130")
-alcance_maximo = 50.0
+alcance_maximo = 55.0
 shake_decay = 1.0
