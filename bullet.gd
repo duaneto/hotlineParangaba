@@ -24,3 +24,4 @@ func _on_body_entered(body: Node) -> void:
 	# 3. Espera o som (0.5s) e remove do jogo
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
+	

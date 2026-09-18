@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk88yshhq731" path="res://tiles/pixil-frame-0 (1).png" id="5_272bh"]
 [ext_resource type="AudioStream" uid="uid://ccqfjneb0pmps" path="res://videos/Hotline Miami Soundtrack ~ Perturbator - Zektrum (youtube).mp3" id="6_7mycd"]
 [ext_resource type="VideoStream" uid="uid://d05a7f0i0kbpj" path="res://videos/45959-447087605.ogv" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://q5eu2b1g5xrl" path="res://hud.tscn" id="9_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg77c"]
 texture = ExtResource("3_5vw27")
@@ -8767,3 +8768,5 @@ stream = ExtResource("7_272bh")
 autoplay = true
 expand = true
 loop = true
+
+[node name="HUD" parent="." unique_id=948051188 instance=ExtResource("9_kek77")]

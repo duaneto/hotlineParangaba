@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://q5eu2b1g5xrl"]
+
+[ext_resource type="Script" uid="uid://bmjtml84rcw7w" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Shader" uid="uid://b1tluy4a1n1hm" path="res://hud.gdshader" id="2_8sq4i"]
+[ext_resource type="FontFile" uid="uid://dgnau322s54m4" path="res://ZenDots-Regular.ttf" id="2_64ctp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57qmd"]
+shader = ExtResource("2_8sq4i")
+shader_parameter/scanline_strength = 0.18
+shader_parameter/noise_strength = 0.08
+shader_parameter/distortion = 0.015
+shader_parameter/flicker_strength = 0.04
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpiub"]
+bg_color = Color(0.98039216, 0.36862746, 0.023529412, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=948051188]
+script = ExtResource("1_37p78")
+
+[node name="YellowScreen" type="ColorRect" parent="." unique_id=1169721024]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9647059, 0.6431373, 0.12156863, 0.9764706)
+
+[node name="ScanLines" type="ColorRect" parent="." unique_id=1229398322]
+material = SubResource("ShaderMaterial_57qmd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.96862745, 1, 1, 1)
+
+[node name="MessageLabel" type="Label" parent="." unique_id=1355765166]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1840.0
+offset_top = -628.5
+offset_right = 1815.0
+offset_bottom = 628.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_64ctp")
+theme_override_font_sizes/font_size = 100
+text = "São 14:00, você estava no Shopping Parangaba em Fortaleza para assistir Vingadores Doomsday. Porém, de repente, a máfia russa chega e invade o local! 
+Agora você só tem uma pistola para se defender! Elimine a máfia russa e fuja
+do Shopping Parangaba o mais rápido possível! 
+
+(atenção: todos incluindo você morrem  com apenas um disparo, fique ligado!)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TimeLabel" type="Label" parent="." unique_id=642065572]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 100
+
+[node name="StartButton" type="Button" parent="." unique_id=1924616496]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -251.0
+offset_top = -422.0
+offset_right = 343.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_64ctp")
+theme_override_font_sizes/font_size = 121
+theme_override_styles/normal = SubResource("StyleBoxFlat_gpiub")
+text = "Iniciar!"
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1476615882]
+
+[node name="GameTimer" type="Timer" parent="." unique_id=885592113]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
