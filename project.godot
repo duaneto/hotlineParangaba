@@ -23,6 +23,11 @@ window/size/mode=1
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+inimigo=""
+mortal=""
+
 [input]
 
 up={

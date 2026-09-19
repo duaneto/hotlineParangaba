@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://2o3qh8g0w88"]
+
+[ext_resource type="Script" uid="uid://vk2mx4dmm5s6" path="res://inimigo.gd" id="1_030df"]
+[ext_resource type="Texture2D" uid="uid://do417duu6ykcv" path="res://tiles/inimigo1.png" id="2_l0fh3"]
+[ext_resource type="Texture2D" uid="uid://l7kpfmpkwtam" path="res://tiles/inimigo2.png" id="3_o83ti"]
+[ext_resource type="Texture2D" uid="uid://c31libff337l" path="res://tiles/inimigo1_morto.png" id="4_5cs1f"]
+[ext_resource type="Texture2D" uid="uid://p5ldv1w8re5k" path="res://tiles/inimigo2_morto.png" id="5_ekwcj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0b8xr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l0fh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5cs1f")
+}],
+"loop": 1,
+"name": &"andando1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o83ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ekwcj")
+}],
+"loop": 1,
+"name": &"andando2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g45jm"]
+size = Vector2(33, 14)
+
+[node name="inimigo" type="CharacterBody2D" unique_id=461429774 groups=["inimigo"]]
+collision_layer = 2
+collision_mask = 18
+script = ExtResource("1_030df")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=999320044]
+z_index = 2
+position = Vector2(2.999999, 4.7683716e-07)
+scale = Vector2(0.68000007, 0.6153846)
+sprite_frames = SubResource("SpriteFrames_0b8xr")
+animation = &"andando1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1277452295]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_g45jm")

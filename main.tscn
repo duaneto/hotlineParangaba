@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://2ii5gpky3n8c"]
 
 [ext_resource type="Script" uid="uid://bll7a5k5a26wp" path="res://node.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://2o3qh8g0w88" path="res://inimigo.tscn" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccccbt0t7jwnk" path="res://jogador.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://b7rpa0suxng1q" path="res://tiles/tilesLegais.png" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://dbid3vyp52ehb" path="res://tiles/remember like the background tiles all litter tiles are 16 by 16 pixels - Imgur.png" id="3_lquwl"]
@@ -8719,8 +8720,9 @@ sources/0 = SubResource("TileSetAtlasSource_yaehf")
 
 [node name="Node" type="Node" unique_id=439981961]
 script = ExtResource("1_0xm2m")
+cena_inimigo = ExtResource("2_4c57u")
 
-[node name="Jogador" parent="." unique_id=911236426 instance=ExtResource("2_h2yge")]
+[node name="Jogador" parent="." unique_id=911236426 groups=["jogador"] instance=ExtResource("2_h2yge")]
 
 [node name="Mapa" type="Node2D" parent="." unique_id=1516055962]
 z_index = 2
@@ -8770,3 +8772,40 @@ expand = true
 loop = true
 
 [node name="HUD" parent="." unique_id=948051188 instance=ExtResource("9_kek77")]
+visible = false
+
+[node name="pontosSpawn" type="Node2D" parent="." unique_id=94338336]
+position = Vector2(47, 3)
+
+[node name="ponto1" type="Marker2D" parent="pontosSpawn" unique_id=1329406131]
+position = Vector2(1427, 1329)
+
+[node name="ponto2" type="Marker2D" parent="pontosSpawn" unique_id=1528303868]
+position = Vector2(1183, 1469)
+
+[node name="ponto3" type="Marker2D" parent="pontosSpawn" unique_id=1820448677]
+position = Vector2(1117, 1334)
+
+[node name="ponto4" type="Marker2D" parent="pontosSpawn" unique_id=344154619]
+position = Vector2(900, 1037)
+
+[node name="ponto5" type="Marker2D" parent="pontosSpawn" unique_id=252631124]
+position = Vector2(692, 1090)
+
+[node name="ponto6" type="Marker2D" parent="pontosSpawn" unique_id=1455538495]
+position = Vector2(586, 1031)
+
+[node name="ponto7" type="Marker2D" parent="pontosSpawn" unique_id=101453342]
+position = Vector2(708, 952)
+
+[node name="ponto8" type="Marker2D" parent="pontosSpawn" unique_id=1498413435]
+position = Vector2(698, 793)
+
+[node name="ponto9" type="Marker2D" parent="pontosSpawn" unique_id=434895247]
+position = Vector2(184, 766)
+
+[node name="ponto10" type="Marker2D" parent="pontosSpawn" unique_id=935088262]
+position = Vector2(384, 382)
+
+[node name="inimigo" parent="." unique_id=461429774 instance=ExtResource("2_4c57u")]
+position = Vector2(3, 2)
