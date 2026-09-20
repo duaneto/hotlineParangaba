@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3t3e"]
 size = Vector2(21.81818, 24.000002)
 
-[node name="Jogador" type="CharacterBody2D" unique_id=911236426]
+[node name="Jogador" type="CharacterBody2D" unique_id=911236426 groups=["jacket"]]
 z_index = 5
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_c2wt1")

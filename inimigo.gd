@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var velocidade: float = 100.0
 @export var distancia_visao: float = 150.0
-@export var bulletSpeed: int = 500
+@export var bulletSpeed: int = 700
 @export var vivo: bool = true
-var bullet_scene = preload("res://Bala.tscn")
+var bullet_scene = preload("res://bala.tscn")
 
 
 
@@ -13,7 +13,11 @@ var pode_atirar = true
 
 
 func _ready() -> void:
+	$CollisionShape2D.set_deferred("disabled", false)
 	jogador = get_tree().get_first_node_in_group("jogador")
+	$Sprite2D.show()
+	$Sprite2D2.hide()
+	$Sprite2D3.hide()
 
 func _physics_process(delta: float) -> void:
 
@@ -25,8 +29,6 @@ func _physics_process(delta: float) -> void:
 
 			if distancia <= distancia_visao:
 
-				print("VIU O JOGADOR!")
-
 				# Faz o inimigo olhar para o jogador
 				look_at(jogador.global_position)
 
@@ -35,16 +37,17 @@ func _physics_process(delta: float) -> void:
 				if global_position.distance_to(jogador.global_position) < 100:
 					velocity = direcao * velocidade
 					await get_tree().create_timer(0.5).timeout
-					velocity = global_position
+					velocity = Vector2.ZERO
 				else:
 					velocity = direcao * velocidade
 
 				if pode_atirar:
 					shoot(jogador.global_position)
+					
 
 			else:
 
-				velocity.x = velocidade
+				velocity.x = 0
 				velocity.y = 0
 
 		else:
@@ -63,19 +66,27 @@ func shoot(target_position: Vector2) -> void:
 	
 	var direction: Vector2 = (target_position - global_position).normalized()
 	bullet.linear_velocity = direction * bulletSpeed
-	
+	$AudioStreamPlayer.play()
 	var angle: float = direction.angle()
 	bullet.rotation = angle
-	
-	get_parent().add_child(bullet)
+	if vivo == true:
+		get_parent().add_child(bullet)
 	
 	await get_tree().create_timer(1.0).timeout
-
+	
 	pode_atirar = true
+	if vivo == true:
+		$Sprite2D3.show()
+		await get_tree().create_timer(0.1).timeout
+		$Sprite2D3.hide()
 
 
 func receber_dano() -> void:
-
-	print("INIMIGO MORREU!")
-
+	if vivo == true:
+		$Sprite2D2.show()
+		$Sprite2D.hide()
+		vivo = false
+		$CollisionShape2D.set_deferred("disabled", true)
+func despawn():
 	queue_free()
+	

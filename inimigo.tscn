@@ -2,50 +2,41 @@
 
 [ext_resource type="Script" uid="uid://vk2mx4dmm5s6" path="res://inimigo.gd" id="1_030df"]
 [ext_resource type="Texture2D" uid="uid://do417duu6ykcv" path="res://tiles/inimigo1.png" id="2_l0fh3"]
-[ext_resource type="Texture2D" uid="uid://l7kpfmpkwtam" path="res://tiles/inimigo2.png" id="3_o83ti"]
 [ext_resource type="Texture2D" uid="uid://c31libff337l" path="res://tiles/inimigo1_morto.png" id="4_5cs1f"]
-[ext_resource type="Texture2D" uid="uid://p5ldv1w8re5k" path="res://tiles/inimigo2_morto.png" id="5_ekwcj"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0b8xr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_l0fh3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_5cs1f")
-}],
-"loop": 1,
-"name": &"andando1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_o83ti")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ekwcj")
-}],
-"loop": 1,
-"name": &"andando2",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://yj427m1kkedi" path="res://tiles/inimigo1atirando.png" id="5_l0fh3"]
+[ext_resource type="AudioStream" uid="uid://n3vsnqol5iyq" path="res://videos/TIRO DE PISTOLA SOM EFEITO!! - audio efeitos brasil (youtube) (mp3cut.net).mp3" id="6_o83ti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g45jm"]
 size = Vector2(33, 14)
 
 [node name="inimigo" type="CharacterBody2D" unique_id=461429774 groups=["inimigo"]]
-collision_layer = 2
-collision_mask = 18
-script = ExtResource("1_030df")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=999320044]
 z_index = 2
-position = Vector2(2.999999, 4.7683716e-07)
-scale = Vector2(0.68000007, 0.6153846)
-sprite_frames = SubResource("SpriteFrames_0b8xr")
-animation = &"andando1"
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_030df")
+distancia_visao = 175.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1277452295]
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_g45jm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=78385740]
+stream = ExtResource("6_o83ti")
+volume_db = -10.509
+pitch_scale = 0.9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1930167521]
+position = Vector2(1.5, -5.9604645e-08)
+scale = Vector2(0.66, 0.61538464)
+texture = ExtResource("2_l0fh3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=308375643]
+position = Vector2(4, 5.9604645e-08)
+rotation = -1.579523
+scale = Vector2(0.6497913, 0.708023)
+texture = ExtResource("4_5cs1f")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=369966586]
+position = Vector2(1.7500002, -4.172325e-07)
+scale = Vector2(0.65000004, 0.6153846)
+texture = ExtResource("5_l0fh3")

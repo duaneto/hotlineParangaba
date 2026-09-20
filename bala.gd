@@ -14,14 +14,17 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:
-	# 1. Esconde a bala e desativa a colisão usando set_deferred
-	$Sprite2D.hide()
-	$CollisionShape2D.set_deferred("disabled", true)
+	if body.is_in_group("jacket"):
+		body.die()
+	else:
+		# 1. Esconde a bala e desativa a colisão usando set_deferred
+		$Sprite2D.hide()
+		$CollisionShape2D.set_deferred("disabled", true)
 	
-	# 2. Para a bala para o som não andar
-	linear_velocity = Vector2.ZERO
+		# 2. Para a bala para o som não andar
+		linear_velocity = Vector2.ZERO
 	
-	# 3. Espera o som (0.5s) e remove do jogo
-	await get_tree().create_timer(0.5).timeout
-	queue_free()
+		# 3. Espera o som (0.5s) e remove do jogo
+		await get_tree().create_timer(0.5).timeout
+		queue_free()
 	

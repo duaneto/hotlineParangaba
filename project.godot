@@ -27,6 +27,8 @@ window/stretch/aspect="expand"
 
 inimigo=""
 mortal=""
+mata_jacket=""
+jacket=""
 
 [input]
 

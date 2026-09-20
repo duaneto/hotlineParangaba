@@ -33,6 +33,7 @@ func _process(_delta):
 		var minutes = elapsed / 60000
 		var seconds = (elapsed / 1000) % 60
 		var centiseconds = (elapsed / 10) % 100
+		
 
 		$TimeLabel.text = "%02d:%02d.%02d" % [
 			minutes,
@@ -45,3 +46,7 @@ func stop_timer():
 
 func _on_message_timer_timeout():
 	$MessageLabel.hide()
+	
+func time() -> String:
+	return $TimeLabel.text 
+	

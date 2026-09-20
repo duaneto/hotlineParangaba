@@ -7,9 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://dbid3vyp52ehb" path="res://tiles/remember like the background tiles all litter tiles are 16 by 16 pixels - Imgur.png" id="3_lquwl"]
 [ext_resource type="Texture2D" uid="uid://cmdn0p0700ie8" path="res://tiles/save this image so you can use it for your mods - Imgur.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dk88yshhq731" path="res://tiles/pixil-frame-0 (1).png" id="5_272bh"]
-[ext_resource type="AudioStream" uid="uid://ccqfjneb0pmps" path="res://videos/Hotline Miami Soundtrack ~ Perturbator - Zektrum (youtube).mp3" id="6_7mycd"]
-[ext_resource type="VideoStream" uid="uid://d05a7f0i0kbpj" path="res://videos/45959-447087605.ogv" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://pb5m3i12ydig" path="res://videos/hotlineBanger (mp3cut.net).mp3" id="8_4c57u"]
+[ext_resource type="AudioStream" uid="uid://bgbls4cvlqjmp" path="res://videos/Miami (Original Mix) - Jasper Byrne (youtube) (mp3cut.net).mp3" id="9_2cqfq"]
+[ext_resource type="VideoStream" uid="uid://sfl2cgexps5r" path="res://videos/fundo_novo.ogv" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://q5eu2b1g5xrl" path="res://hud.tscn" id="9_kek77"]
+[ext_resource type="VideoStream" uid="uid://cfifg8joqbh3n" path="res://videos/hotlineBackground.ogv" id="10_ycdy4"]
+[ext_resource type="Script" uid="uid://dgv1ac5tprp25" path="res://car.gd" id="11_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dekqoqysiwun2" path="res://tiles/chagas3.0.png" id="11_w48qg"]
+[ext_resource type="FontFile" uid="uid://dsf17rmv0h1i5" path="res://FIGHTT3_.ttf" id="12_vivmo"]
+[ext_resource type="Texture2D" uid="uid://mb1clq5oj0th" path="res://tiles/car.png" id="12_ycdy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg77c"]
 texture = ExtResource("3_5vw27")
@@ -8718,6 +8724,16 @@ sources/1 = SubResource("TileSetAtlasSource_d13ii")
 sources/5 = SubResource("TileSetAtlasSource_lswn8")
 sources/0 = SubResource("TileSetAtlasSource_yaehf")
 
+[sub_resource type="LabelSettings" id="LabelSettings_lxyml"]
+font = ExtResource("12_vivmo")
+font_size = 84
+font_color = Color(1, 0.9647059, 0, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxyml"]
+size = Vector2(100, 46)
+
 [node name="Node" type="Node" unique_id=439981961]
 script = ExtResource("1_0xm2m")
 cena_inimigo = ExtResource("2_4c57u")
@@ -8755,21 +8771,76 @@ tile_map_data = PackedByteArray("AAATAAwABQAAAAAAAGATAAkABQAFAAAAAAAjABAABQADAAA
 tile_set = SubResource("TileSet_a6jrf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1729598230]
-stream = ExtResource("6_7mycd")
-volume_db = -0.435
+stream = ExtResource("8_4c57u")
+volume_db = -13.206
 autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=73271291]
+stream = ExtResource("9_2cqfq")
+volume_db = -7.732
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1040210249]
 z_index = 1
 offset_left = -341.0
-offset_top = -219.0
+offset_top = -198.0
 offset_right = 329.0
-offset_bottom = 220.0
+offset_bottom = 187.0
 mouse_filter = 2
-stream = ExtResource("7_272bh")
+stream = ExtResource("9_4c57u")
 autoplay = true
 expand = true
 loop = true
+
+[node name="End" type="VideoStreamPlayer" parent="." unique_id=703038819]
+z_index = 10
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.020000001
+anchor_right = 0.085
+anchor_bottom = 0.020000001
+offset_left = -147.4
+offset_top = -104.200005
+offset_right = 522.6
+offset_bottom = 280.8
+mouse_filter = 2
+stream = ExtResource("10_ycdy4")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Sprite2D" type="Sprite2D" parent="End" unique_id=1486879187]
+z_index = 11
+z_as_relative = false
+position = Vector2(482, 191)
+scale = Vector2(2.1818748, 2.2412498)
+texture = ExtResource("11_w48qg")
+
+[node name="Label" type="Label" parent="End" unique_id=1431346533]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24300002
+anchor_top = 0.143
+anchor_right = 0.24300002
+anchor_bottom = 0.143
+offset_left = 0.18998718
+offset_top = -0.05500412
+offset_right = 229.18999
+offset_bottom = 108.94499
+text = "TIME:"
+label_settings = SubResource("LabelSettings_lxyml")
+
+[node name="Label2" type="Label" parent="End" unique_id=717170929]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.254
+anchor_top = 0.40500003
+anchor_right = 0.254
+anchor_bottom = 0.40500003
+offset_left = -0.18000793
+offset_top = 0.07498169
+offset_right = 217.81999
+offset_bottom = 97.07498
+label_settings = SubResource("LabelSettings_lxyml")
 
 [node name="HUD" parent="." unique_id=948051188 instance=ExtResource("9_kek77")]
 visible = false
@@ -8784,7 +8855,7 @@ position = Vector2(1427, 1329)
 position = Vector2(1183, 1469)
 
 [node name="ponto3" type="Marker2D" parent="pontosSpawn" unique_id=1820448677]
-position = Vector2(1117, 1334)
+position = Vector2(1066, 1371)
 
 [node name="ponto4" type="Marker2D" parent="pontosSpawn" unique_id=344154619]
 position = Vector2(900, 1037)
@@ -8809,3 +8880,20 @@ position = Vector2(384, 382)
 
 [node name="inimigo" parent="." unique_id=461429774 instance=ExtResource("2_4c57u")]
 position = Vector2(3, 2)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=476719285]
+z_index = 6
+position = Vector2(497, 128)
+script = ExtResource("11_dg77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1886381875]
+shape = SubResource("RectangleShape2D_lxyml")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=396637787]
+z_index = 1
+position = Vector2(-5.722046e-06, 9.536743e-07)
+scale = Vector2(0.11527292, 0.14509647)
+texture = ExtResource("12_ycdy4")
+
+[connection signal="dead" from="Jogador" to="." method="_on_jogador_dead"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
