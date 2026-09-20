@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://c4gvkqm3w1s55" path="res://camera_2d.gd" id="3_q2130"]
 [ext_resource type="Texture2D" uid="uid://cpf8cj6sybio7" path="res://tiles/jacketTiro.png" id="4_j3kwt"]
 [ext_resource type="Texture2D" uid="uid://cdeya5nxi51sk" path="res://tiles/jacket.png" id="4_xswob"]
+[ext_resource type="Texture2D" uid="uid://cnkwrmdx42270" path="res://tiles/jacket_shotgun_shoot.png" id="5_82vy7"]
+[ext_resource type="Texture2D" uid="uid://dqs6kvnn3j6py" path="res://tiles/jacket_shotgun.png" id="6_kdflp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3t3e"]
 size = Vector2(21.81818, 24.000002)
@@ -27,6 +29,18 @@ visibility_layer = 513
 position = Vector2(-1.1324883e-06, 0.0640788)
 scale = Vector2(0.88888896, 0.848873)
 texture = ExtResource("4_xswob")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1851354226]
+visibility_layer = 513
+position = Vector2(-1.1324883e-06, 0.0640788)
+scale = Vector2(0.88888896, 0.848873)
+texture = ExtResource("5_82vy7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=311713144]
+visibility_layer = 513
+position = Vector2(-1.1324883e-06, 0.0640788)
+scale = Vector2(0.88888896, 0.848873)
+texture = ExtResource("6_kdflp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106993709]
 position = Vector2(-6.666667, -2.9140926e-07)

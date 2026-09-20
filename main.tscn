@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dekqoqysiwun2" path="res://tiles/chagas3.0.png" id="11_w48qg"]
 [ext_resource type="FontFile" uid="uid://dsf17rmv0h1i5" path="res://FIGHTT3_.ttf" id="12_vivmo"]
 [ext_resource type="Texture2D" uid="uid://mb1clq5oj0th" path="res://tiles/car.png" id="12_ycdy4"]
+[ext_resource type="Script" uid="uid://nxk10blyx5oa" path="res://trabuco.gd" id="17_074og"]
+[ext_resource type="Texture2D" uid="uid://ydogys4w6ptg" path="res://tiles/shotgun_PNG55.webp" id="17_yaehf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg77c"]
 texture = ExtResource("3_5vw27")
@@ -8734,6 +8736,9 @@ stacked_outline_0/size = 5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxyml"]
 size = Vector2(100, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81ofc"]
+size = Vector2(27.19284, 10.22847)
+
 [node name="Node" type="Node" unique_id=439981961]
 script = ExtResource("1_0xm2m")
 cena_inimigo = ExtResource("2_4c57u")
@@ -8843,7 +8848,6 @@ offset_bottom = 97.07498
 label_settings = SubResource("LabelSettings_lxyml")
 
 [node name="HUD" parent="." unique_id=948051188 instance=ExtResource("9_kek77")]
-visible = false
 
 [node name="pontosSpawn" type="Node2D" parent="." unique_id=94338336]
 position = Vector2(47, 3)
@@ -8895,5 +8899,22 @@ position = Vector2(-5.722046e-06, 9.536743e-07)
 scale = Vector2(0.11527292, 0.14509647)
 texture = ExtResource("12_ycdy4")
 
+[node name="Trabuco" type="Area2D" parent="." unique_id=766000358]
+z_index = 2
+position = Vector2(1480, 1215)
+rotation = 0.62133723
+script = ExtResource("17_074og")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trabuco" unique_id=257430053]
+position = Vector2(0.46655273, 0.5961304)
+shape = SubResource("RectangleShape2D_81ofc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trabuco" unique_id=1255226804]
+position = Vector2(0.14293337, 0.1037544)
+scale = Vector2(0.14929137, 0.14183927)
+texture = ExtResource("17_yaehf")
+
 [connection signal="dead" from="Jogador" to="." method="_on_jogador_dead"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Trabuco" to="." method="_on_trabuco_body_entered"]

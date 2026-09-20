@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal start_game
 
+
 var start_time := 0
 var timer_running := false
 
